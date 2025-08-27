@@ -5,7 +5,6 @@ import DatePicker from '../components/DatePicker';
 import DescriptionInput from '../components/DescriptionInput';
 import { categories } from '../constants/categories';
 import { globalStyles } from '../styles/globalStyles';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useRef, useState } from 'react';
 import {
   Alert,
@@ -18,8 +17,6 @@ import {
   View,
 } from 'react-native';
 
-const { useMoneyStore } = Federated.importModule('store', './store');
-
 const initialForm = {
   description: '',
   value: 0,
@@ -29,25 +26,9 @@ const initialForm = {
 
 export default function AddTransactions() {
   const [form, setForm] = useState(initialForm);
-  const { transactions, setTransactions } = useMoneyStore();
   const valueInputRef = useRef<TextInput>(null);
 
-  const setAsyncStorage = async (data: any) => {
-    try {
-      await AsyncStorage.setItem('transactions', JSON.stringify(data));
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   const addTransaction = async () => {
-    const newTransaction = { id: transactions.length + 1, ...form };
-    const updatedTransactions = [...transactions, newTransaction];
-
-    setTransactions(updatedTransactions);
-    setForm(initialForm);
-    await setAsyncStorage(updatedTransactions);
-
     Alert.alert('Transação adicionada com sucesso!');
   };
 
