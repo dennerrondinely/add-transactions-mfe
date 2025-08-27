@@ -61,11 +61,11 @@ export default env => {
         },
       }),
       new Repack.plugins.ModuleFederationPluginV2({
-        name: 'addTransactions',
-        filename: 'addTransactions.container.bundle',
+        name: 'AddTransactions',
+        filename: 'AddTransactions.container.bundle',
         dts: false,
         exposes: {
-          './addTransactions': './src/screens/RemoteScreen',
+          './AddTransactions': './src/screens/AddTransactions',
         },
         remotes: {
           store: `store@https://storage.googleapis.com/teste-415119.appspot.com/Store/0.0.1/outputs/${platform}/remotes/Store.container.bundle`,
