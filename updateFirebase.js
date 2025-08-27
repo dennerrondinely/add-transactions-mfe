@@ -32,7 +32,7 @@ async function createModule() {
   try {
     // Criar um novo documento com ID automático
     const docRef = await db.collection(COLLECTION_NAME).add({
-      scriptId: "Add_Transactions",
+      scriptId: "AddTransactions",
       moduleId: ADD_TRANSACTIONS_MODULE_ID,
       version: version,
       url: BUCKET_URL,
