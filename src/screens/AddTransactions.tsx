@@ -18,7 +18,7 @@ import {
   View,
 } from 'react-native';
 // @ts-ignore
-import { useMoneyStore } from 'store/transactionsStore';
+import { useMoneyStore } from 'store/Store';
 
 const initialForm = {
   description: '',
