@@ -17,8 +17,8 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-// @ts-ignore
-import { useMoneyStore } from 'store/Store';
+
+const { useMoneyStore } = Federated.importModule('store', './store');
 
 const initialForm = {
   description: '',
